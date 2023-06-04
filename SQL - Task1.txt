@@ -1,0 +1,49 @@
+IMDB Design a DB for IMDB
+1. Movie should have multiple media(Video or Image)
+2. Movie can belongs to multiple Genre 
+3. Movie can have multiple reviews and Review can belongs to a user
+4. Artist can have multiple skills 
+5. Artist can perform multiple role in a single film
+
+Movies Table
+
+CREATE TABLE MOVIES(
+Name text,
+Media text,
+Genre text,
+Movie_id integer,
+Review_id integer)
+
+
+insert into movies values ("Evil Dead Rise", "Video", "Horror" ,1,1)
+insert into movies values ("Mission: Impossible – Dead Reckoning Part One genre", "Video", "Thriller" ,2,2)
+insert into movies values ("Radioactive", "Video", "Science" ,3,3)
+
+
+Reviews Table
+Create table Review(
+id integer,
+movie_id integer,
+Review text
+)
+
+insert into review values (1,1,"good")
+insert into review values (2,2,"Better")
+insert into review values (3,3,"excellent")
+
+
+
+Artist Table
+create table Artist(
+Name text,
+Skills text,
+Role text,
+Movie_id integer)
+INSERT INTO Artist values("Lily Sullivan", "Actor","Devil",1)
+INSERT INTO Artist values("Christopher McQuarrie", "Direction","Director",2)
+INSERT INTO Artist values("Sam Riley", "Actor","Peirre Curie",3)
+
+select Movie_name,name from movies left join artist on movies.Movie_id = Artist.Movie_id where skills="Actor"
+
+
+
